@@ -28,15 +28,15 @@ p:last-child{margin-bottom:0}
 .bwrap.c{align-items:center}
 .bsub{font-family:"Inter",sans-serif;font-size:16px;font-weight:600;color:#7a5c2e;text-align:center;align-self:center;letter-spacing:.02em}
 .bar{width:56px;height:3px;background:var(--gg);border-radius:2px;margin-bottom:36px}
-/* Workshop glow — precisa ter o gradiente próprio pois filho não herda background-clip */
+/* Workshop — visível, maior e vibrante */
 .badge-ws{
-  background:var(--gg);
+  background:linear-gradient(86deg,#b8860b 0%,#e8c84a 50%,#b8860b 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
-  font-weight:800;
-  letter-spacing:.06em;
-  filter:drop-shadow(0 0 5px rgba(209,189,128,.5));
+  font-weight:900;
+  font-size:1.15em;
+  letter-spacing:.08em;
 }
 
 /* HERO */
@@ -310,7 +310,7 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
     <div class="hero-left">
       <div class="hero-badge">
         <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center">
-          <span class="badge-ws">✦ Workshop</span>
+          <span class="badge-ws">Workshop</span>
           <span style="-webkit-text-fill-color:#c8a04a;opacity:.7">·</span>
           15/06 às 19h
           <span style="-webkit-text-fill-color:#c8a04a;opacity:.5">|</span>
