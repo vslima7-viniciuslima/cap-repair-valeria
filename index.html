@@ -28,6 +28,12 @@ p:last-child{margin-bottom:0}
 .bwrap.c{align-items:center}
 .bsub{font-family:"Inter",sans-serif;font-size:16px;font-weight:600;color:#7a5c2e;text-align:center;align-self:center;letter-spacing:.02em}
 .bar{width:56px;height:3px;background:var(--gg);border-radius:2px;margin-bottom:36px}
+/* Workshop glow */
+.badge-ws{
+  font-weight:800;
+  letter-spacing:.06em;
+  filter:drop-shadow(0 0 6px rgba(209,189,128,.7));
+}
 
 /* HERO */
 #hero{
@@ -274,13 +280,19 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
   /* foto bio mobile — full width, cortada, preenche a seção */
   .aphoto{width:100%;max-width:100%;margin-inline:0;border-radius:12px;height:320px;overflow:hidden}
   .aphoto img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  /* badge compacto numa linha */
-  .hero-badge .lbl{font-size:9px;letter-spacing:.04em;white-space:nowrap}
-  .hero-badge{padding:5px 12px}
-  /* botão hero maior e em destaque */
+  /* badge — um pouco maior */
+  .hero-badge{padding:7px 14px}
+  .hero-badge .lbl{font-size:10.5px;letter-spacing:.04em}
+  /* botão hero em destaque */
   #hero .bwrap .btn{font-size:14px;padding:17px 28px;width:100%;max-width:340px}
   /* botões gerais mobile */
   .btn{font-size:13px;padding:14px 20px}
+  /* botão benefícios maior */
+  #beneficios .btn{font-size:15px;padding:18px 32px}
+  /* botão oferta maior */
+  #oferta .btn{font-size:15px;padding:18px 32px}
+  /* CTA final — tudo numa linha */
+  #ctafinal .btn{font-size:12px !important;padding:17px 20px !important;white-space:nowrap}
 }
 </style>
 </head>
@@ -293,7 +305,16 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
     <!-- Coluna esquerda: texto -->
     <div class="hero-left">
       <div class="hero-badge">
-        <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Workshop · 15/06 às 19h | Ao vivo no Google Meet</span>
+        <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center">
+          <span class="badge-ws">✦ Workshop</span>
+          <span style="-webkit-text-fill-color:#c8a04a;opacity:.7">·</span>
+          15/06 às 19h
+          <span style="-webkit-text-fill-color:#c8a04a;opacity:.5">|</span>
+          <span style="display:inline-flex;align-items:center;gap:4px">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b8922a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.362a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+            Ao vivo no Google Meet
+          </span>
+        </span>
       </div>
 
       <h1>Como entrar em um nicho pouco explorado da estética, descobrir como criar próteses de aréolas mamárias realistas e começar a se posicionar com um trabalho que <span class="gold">devolve a autoestima de mulheres que passaram por mastectomia</span> ou outros processos que afetaram sua aréola mamária</h1>
