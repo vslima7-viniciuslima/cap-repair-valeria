@@ -248,13 +248,13 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
     align-items:center;text-align:center;
     gap:28px;
   }
-  /* imagem sobe para o topo */
+  /* imagem sobe para o topo — menor para caber na mesma tela que badge + headline */
   .hero-right{order:-1;width:100%;justify-content:center}
   .hero-right img{
-    max-width:min(90vw,460px);margin-inline:auto;
-    /* funde o esfumaçado inferior do PNG com o fundo da página */
-    -webkit-mask-image:linear-gradient(to bottom, black 72%, transparent 100%);
-    mask-image:linear-gradient(to bottom, black 72%, transparent 100%);
+    max-height:36vh;
+    width:auto;
+    max-width:min(80vw,300px);
+    margin-inline:auto;
   }
   /* texto fica centralizado embaixo */
   .hero-left{align-items:center;text-align:center;padding-bottom:0;width:100%}
@@ -271,9 +271,9 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
   /* foto bio mobile — full width, cortada, preenche a seção */
   .aphoto{width:100%;max-width:100%;margin-inline:0;border-radius:12px;height:320px;overflow:hidden}
   .aphoto img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .stk{display:block;position:fixed;bottom:0;left:0;right:0;z-index:100;padding:12px 20px;background:var(--esp);border-top:1px solid rgba(255,219,169,.15);box-shadow:0 -4px 20px rgba(0,0,0,.3)}
-  .stk .btn{width:100%;padding:14px 16px;font-size:13px;letter-spacing:.03em}
-  body{padding-bottom:72px}
+  /* botão mobile menor */
+  .btn{font-size:13px;padding:15px 24px}
+  #hero .bwrap .btn{font-size:13px;padding:15px 20px}
 }
 </style>
 </head>
@@ -286,7 +286,7 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
     <!-- Coluna esquerda: texto -->
     <div class="hero-left">
       <div class="hero-badge">
-        <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Workshop &nbsp;·&nbsp; 15/06 às 19h &nbsp;|&nbsp; Ao vivo no Google Meet</span>
+        <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;line-height:1.6">Workshop &nbsp;·&nbsp; 15/06 às 19h<br>Ao vivo no Google Meet</span>
       </div>
 
       <h1>Como entrar em um nicho pouco explorado da estética, descobrir como criar próteses de aréolas mamárias realistas e começar a se posicionar com um trabalho que <span class="gold">devolve a autoestima de mulheres que passaram por mastectomia</span> ou outros processos que afetaram sua aréola mamária</h1>
@@ -294,7 +294,7 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
       <p class="hero-sub">Mesmo que você esteja começando do zero ou queira se diferenciar no mercado</p>
 
       <div class="bwrap">
-        <a href="#oferta" class="btn">→ QUERO GARANTIR MINHA VAGA POR R$17</a>
+        <a href="#oferta" class="btn">QUERO GARANTIR MINHA VAGA</a>
         <span class="bsub">Vagas limitadas &nbsp;|&nbsp; Protocolo exclusivo</span>
       </div>
 
@@ -380,7 +380,7 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
       <li><div class="arw">→</div>Como se posicionar como profissional diferenciada</li>
       <li><div class="arw">→</div>Como devolver autoestima para mulheres reais</li>
     </ul>
-    <div class="bwrap c"><a href="#oferta" class="btn">→ GARANTIR MINHA VAGA AGORA</a></div>
+    <div class="bwrap c"><a href="#oferta" class="btn">GARANTIR MINHA VAGA AGORA</a></div>
   </div>
 </section>
 
@@ -445,7 +445,7 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
       <span class="pnew">R$17</span>
       <div class="pnote">Vagas limitadas</div>
       <ul class="oitems"><li>Acesso ao evento completo</li><li>Entendimento da técnica</li><li>Estratégia para entrar no nicho</li></ul>
-      <div class="bwrap c" style="margin-top:0"><a href="#" class="btn">→ QUERO PARTICIPAR POR R$17</a></div>
+      <div class="bwrap c" style="margin-top:0"><a href="#" class="btn">QUERO PARTICIPAR POR R$17</a></div>
     </div>
   </div>
 </section>
@@ -496,12 +496,11 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
   <div class="wrap" style="max-width:720px">
     <p class="cfade">Se você quer continuar no comum… feche essa página.</p>
     <p class="cstrong">Mas se quer entrar em um nicho pouco explorado,<br><span>ganhar dinheiro e transformar vidas:</span></p>
-    <div class="bwrap c" style="margin-top:56px"><a href="#oferta" class="btn" style="font-size:17px;padding:22px 56px">→ GARANTIR MINHA VAGA AGORA</a></div>
+    <div class="bwrap c" style="margin-top:56px"><a href="#oferta" class="btn" style="font-size:17px;padding:22px 56px">GARANTIR MINHA VAGA AGORA</a></div>
   </div>
 </section>
 
 <footer><p>&copy; 2026 &nbsp;·&nbsp; Valéria Yoshino &nbsp;·&nbsp; CAP REPAIR &nbsp;·&nbsp; Todos os direitos reservados</p></footer>
 
-<div class="stk"><a href="#oferta" class="btn">→ GARANTIR MINHA VAGA POR R$17</a></div>
 </body>
 </html>
