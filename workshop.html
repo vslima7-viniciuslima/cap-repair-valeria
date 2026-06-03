@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CAP REPAIR – Valéria Yoshino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Sora:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Red Hat Display",sans-serif;background:#FFFCF7;color:#342710;font-size:18px;line-height:1.6}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+:root{--esp:#342710;--navy:#0A2031;--cream:#FFFCF7;--mid:#F5ECDE;--brd:#E8DDD0;--gg:linear-gradient(86deg,#936926 -4%,#D1BD80 98%);--sbtn:0 4px 48px rgba(226,154,50,.45);--mw:1200px;--px:clamp(20px,5vw,80px)}
+.wrap{width:100%;max-width:var(--mw);margin-inline:auto;padding-inline:var(--px)}
+section{padding-block:140px}
+.gold{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+h1{font-size:clamp(26px,3.5vw,42px);font-weight:600;line-height:1.15;color:var(--esp)}
+h2{font-size:clamp(22px,2.4vw,34px);font-weight:700;line-height:1.2;color:var(--esp);margin-bottom:24px}
+h3{font-size:clamp(18px,2vw,26px);font-weight:600;color:var(--esp);margin-bottom:12px}
+p{font-size:clamp(15px,1.3vw,17px);color:var(--navy);line-height:1.65;margin-bottom:16px}
+p:last-child{margin-bottom:0}
+.lbl{font-family:"Inter",sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:"Inter",sans-serif;font-size:16px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;padding:18px 48px;border-radius:900px;background:var(--gg);color:#fff;border:none;cursor:pointer;box-shadow:var(--sbtn);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 60px rgba(226,154,50,.6)}
+.bwrap{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:36px}
+.bwrap.c{align-items:center}
+.bsub{font-family:"Inter",sans-serif;font-size:16px;font-weight:600;color:#7a5c2e;text-align:center;align-self:center;letter-spacing:.02em}
+.bar{width:56px;height:3px;background:var(--gg);border-radius:2px;margin-bottom:36px}
+/* Workshop — negrito sólido dourado, bem destacado */
+.badge-ws{
+  -webkit-text-fill-color:#c07a10;
+  color:#c07a10;
+  font-weight:900;
+  font-size:1.2em;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  text-shadow:0 1px 8px rgba(192,122,16,.35);
+}
+
+/* HERO */
+#hero{
+  background:
+    radial-gradient(ellipse 90% 70% at 100% 0%,   rgba(209,189,128,.38) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 0%   80%,   rgba(196,154, 60,.16) 0%, transparent 55%),
+    #FBF5EC;
+  padding-top: 72px;
+  padding-bottom: 0;       /* sem padding embaixo — imagem sangra para próxima seção */
+  overflow: visible;
+  position: relative;
+}
+#hero::before{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  width:500px;height:500px;top:-150px;right:-100px;
+  background:radial-gradient(circle,rgba(209,189,128,.20) 0%,transparent 70%);
+  z-index:0;
+}
+
+/* Desktop: 2 colunas */
+#hero .wrap{
+  display:grid;
+  grid-template-columns: 1fr 460px;
+  gap: 48px;
+  align-items: end;       /* alinha pela base — imagem toca o fundo */
+  position:relative;z-index:1;
+}
+.hero-left{
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding-bottom: 72px;   /* respiro só no lado do texto */
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(147,105,38,.10);border:1px solid rgba(147,105,38,.28);
+  border-radius:50px;padding:6px 18px;margin-bottom:28px;
+}
+#hero h1{
+  font-size:clamp(22px,2.5vw,36px);
+  font-weight:600;line-height:1.18;
+  color:var(--esp);max-width:560px;
+}
+.hero-sub{
+  font-size:clamp(16px,1.5vw,20px);
+  color:var(--navy);margin-top:16px;max-width:500px;line-height:1.6;
+  font-weight:500;
+}
+/* imagem direita */
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  align-self:center;
+}
+.hero-right img{
+  width:100%;max-width:680px;
+  display:block;
+  filter:drop-shadow(0 12px 40px rgba(52,39,16,.10));
+}
+.scroll-ico{width:22px;margin-top:28px}
+
+/* QUEBRA — dourado escuro quente, referência premium */
+#quebra{
+  background: linear-gradient(160deg, #6b4410 0%, #3d2208 60%, #1e0e04 100%);
+  padding-block:80px;
+}
+#quebra .wrap{max-width:760px;text-align:center}
+#quebra p{font-size:clamp(20px,2.8vw,30px);font-weight:600;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:12px}
+.punch{font-size:clamp(22px,3.2vw,36px) !important;font-weight:700 !important;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:12px !important}
+
+/* PROVA */
+#prova{background:var(--cream)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.pcard{background:#fff;border:1px solid var(--brd);border-radius:16px;padding:36px 28px}
+.pcard.wide{grid-column:1/-1}
+.pico{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(147,105,38,.12),rgba(209,189,128,.18));margin-bottom:18px;border:1px solid rgba(147,105,38,.15)}
+.pico svg{width:26px;height:26px;stroke:#936926;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pcard h3{font-size:19px}
+.pcard ul{list-style:none;margin-top:16px}
+.pcard ul li{padding:8px 0 8px 28px;position:relative;font-size:16px;color:#555;border-bottom:1px solid #f0e8e0}
+.pcard ul li:last-child{border-bottom:none}
+.pcard ul li::before{content:"→";position:absolute;left:0;color:#936926;font-weight:700}
+.pph{background:#f5ede2;border:2px dashed #d4c0a8;border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:#b0968a;font-family:"Inter",sans-serif;font-size:11px;text-align:center;margin-bottom:16px}
+.vbanner{
+  background:var(--esp);
+  border-radius:16px;padding:36px 56px;text-align:center;margin-top:56px;
+}
+.vbanner p{font-size:clamp(16px,1.8vw,20px);font-weight:600;color:rgba(255,255,255,.9);margin:0;line-height:1.6}
+.vbanner strong{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* DOR */
+#dor{background:var(--mid)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.dblk{background:#fff;border:1px solid var(--brd);border-radius:16px;padding:36px 28px}
+.dblk .dlbl{font-family:"Inter",sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;display:block}
+.dblk ul{list-style:none}
+.dblk ul li{padding:14px 0;border-bottom:1px solid #ede5d8;font-size:17px;font-weight:600;color:var(--esp);display:flex;align-items:center;gap:10px}
+.dblk ul li::before{content:"•";color:#936926;font-size:20px;flex-shrink:0}
+.dclosing{grid-column:1/-1;background:var(--esp);border-radius:16px;padding:36px 56px;text-align:center}
+.dclosing p{font-size:clamp(18px,2.2vw,26px);font-weight:600;color:rgba(255,255,255,.9);margin:0;line-height:1.6}
+.dclosing em{font-style:normal;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* BENEFÍCIOS */
+#beneficios{background:var(--cream)}
+.blist{list-style:none;margin-top:36px}
+.blist li{display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--brd);font-size:clamp(16px,1.8vw,20px);font-weight:600;color:var(--esp)}
+.blist li:last-child{border-bottom:none}
+.arw{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:rgba(147,105,38,.1);display:flex;align-items:center;justify-content:center;color:#936926;font-size:18px;margin-top:2px}
+
+/* MECANISMO */
+#mecanismo{background:var(--mid)}
+.pgls{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+.pil{background:#fff;border:1px solid var(--brd);border-radius:16px;padding:36px 20px;text-align:center;transition:transform .15s}
+.pil:hover{transform:translateY(-4px)}
+.pil-icon{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(147,105,38,.1),rgba(209,189,128,.15));border:1px solid rgba(147,105,38,.15);margin:0 auto 14px}
+.pil-icon svg{width:24px;height:24px;stroke:#936926;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pnum{font-family:"Sora",monospace;font-size:32px;font-weight:600;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.5;display:block;margin-bottom:6px}
+.pil h3{font-size:18px;margin:0}
+.mclose{text-align:center;margin-top:56px;font-size:clamp(18px,2.2vw,26px);font-weight:700;color:var(--esp)}
+
+/* PARA QUEM */
+#para-quem{background:var(--cream)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.fblk{border-radius:16px;padding:36px 28px}
+.fblk.yes{background:var(--mid);border:1px solid rgba(147,105,38,.2)}
+.fblk.no{background:#8B1A1A;border:none}
+.fblk .ftitle{font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;display:block}
+.fblk.yes .ftitle{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fblk.no .ftitle{color:rgba(255,255,255,.7)}
+.flist,.nlist{list-style:none}
+.flist li,.nlist li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:17px;display:flex;align-items:center;gap:10px}
+.flist li{font-weight:600;color:var(--esp);border-bottom-color:rgba(0,0,0,.08)}
+.nlist li{color:#fff;font-weight:500}
+.ck{color:#2e8b57;font-size:20px;flex-shrink:0}
+.xk{color:#FF6B6B;font-size:20px;font-weight:700;flex-shrink:0}
+
+/* OFERTA */
+#oferta{background:var(--esp)}
+.obox{background:rgba(255,255,255,.05);border:1px solid rgba(255,219,169,.2);border-radius:20px;padding:56px 36px;text-align:center;max-width:520px;margin-inline:auto}
+.oey{font-family:"Inter",sans-serif;font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:20px}
+.pold{font-family:"Inter",sans-serif;font-size:18px;color:rgba(255,255,255,.35);text-decoration:line-through;margin-bottom:8px}
+.pnew{font-size:clamp(48px,7vw,72px);font-weight:700;line-height:1;background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;display:block}
+.pnote{font-family:"Inter",sans-serif;font-size:16px;font-weight:600;color:rgba(255,219,169,.7);margin-bottom:36px;letter-spacing:.03em}
+.oitems{list-style:none;text-align:left;margin-bottom:36px}
+.oitems li{padding:12px 0;color:rgba(255,255,255,.82);font-size:17px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:10px}
+.oitems li::before{content:"→";color:#D1BD80;font-weight:700;flex-shrink:0}
+
+/* GARANTIA */
+#garantia{background:var(--mid)}
+.gbox{display:flex;align-items:center;gap:56px;background:#fff;border:1px solid var(--brd);border-radius:20px;padding:56px 48px;max-width:720px;margin-inline:auto;box-shadow:0 4px 32px rgba(147,105,38,.10)}
+/* Selo de garantia */
+.gseal{
+  flex-shrink:0;
+  width:140px;height:140px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.gseal::before{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:var(--gg);
+  /* borda dentada com clip-path */
+  clip-path:polygon(50% 0%,56% 2%,61% 0%,65% 4%,71% 3%,74% 7%,80% 8%,82% 13%,87% 16%,88% 21%,93% 25%,92% 31%,97% 35%,95% 41%,99% 46%,96% 51%,100% 57%,96% 62%,98% 68%,94% 72%,95% 78%,90% 81%,89% 87%,84% 89%,81% 95%,76% 96%,72% 100%,66% 100%,62% 97%,56% 98%,50% 100%,44% 98%,38% 100%,34% 97%,28% 100%,24% 96%,19% 95%,16% 89%,11% 87%,10% 81%,5% 78%,6% 72%,2% 68%,4% 62%,0% 57%,4% 51%,1% 46%,5% 41%,3% 35%,8% 31%,7% 25%,12% 21%,13% 16%,18% 13%,20% 8%,26% 7%,29% 3%,35% 4%,39% 0%,44% 2%);
+}
+.gseal-inner{
+  position:relative;z-index:1;
+  width:116px;height:116px;border-radius:50%;
+  background:#fff;
+  border:3px solid rgba(147,105,38,.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  box-shadow:inset 0 2px 8px rgba(147,105,38,.1);
+}
+.gseal-days{
+  font-family:"Sora",monospace;font-size:32px;font-weight:700;line-height:1;
+  background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.gseal-label{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--esp);margin-top:2px}
+.gseal-sub{font-family:"Inter",sans-serif;font-size:9px;color:#89806E;margin-top:1px;letter-spacing:.04em;text-transform:uppercase}
+.gtext h2{font-size:26px;margin-bottom:8px}
+.gtext p{font-size:17px;color:#555;margin:0;line-height:1.6}
+
+/* AUTORIDADE */
+#autoridade{background:var(--cream)}
+.agrid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start;margin-top:36px}
+.aphoto{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(52,39,16,.15)}
+.aphoto img{width:100%;height:auto;display:block;border-radius:0}
+.atext p{font-size:17px;color:#555;line-height:1.8}
+.atext p strong{color:var(--esp)}
+.aquote{margin-top:36px;padding:20px 28px;border-left:4px solid #936926;background:var(--mid);border-radius:0 12px 12px 0;font-size:clamp(16px,1.8vw,19px);font-weight:600;color:var(--esp);font-style:italic;line-height:1.6}
+
+/* FAQ */
+#faq{background:var(--mid)}
+.faqlist{margin-top:36px;display:flex;flex-direction:column;gap:10px}
+details{background:#fff;border:1px solid var(--brd);border-radius:12px;overflow:hidden}
+summary{font-family:"Sora",sans-serif;font-size:15px;font-weight:600;color:var(--esp);padding:20px 28px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:#936926;flex-shrink:0;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open] summary{color:#936926}
+details p{padding:0 28px 20px;font-size:15px;color:#555;line-height:1.7}
+
+/* CTA FINAL */
+#ctafinal{background:var(--esp);padding-block:140px;text-align:center}
+.cfade{font-size:clamp(18px,2vw,22px);color:rgba(255,255,255,.4);font-weight:400;margin-bottom:12px}
+.cstrong{font-size:clamp(24px,3.5vw,42px);font-weight:700;color:#fff;line-height:1.3}
+.cstrong span{background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+footer{background:#100800;padding:32px 24px;text-align:center}
+footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.75);margin:0;letter-spacing:.03em}
+.stk{display:none}
+
+@media(max-width:900px){
+  section{padding-block:72px}
+
+  /* Hero mobile: coluna única, imagem em cima, texto embaixo */
+  #hero{padding-top:40px;padding-bottom:40px}
+  #hero .wrap{
+    display:flex;flex-direction:column;
+    align-items:center;text-align:center;
+    gap:28px;
+  }
+  /* imagem sobe para o topo */
+  .hero-right{order:-1;width:100%;justify-content:center}
+  .hero-right img{
+    max-height:46vh;
+    width:auto;
+    max-width:min(85vw,360px);
+    margin-inline:auto;
+    /* funde o esfumaçado inferior com o fundo */
+    -webkit-mask-image:linear-gradient(to bottom, black 68%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 68%, transparent 100%);
+  }
+  /* texto fica centralizado embaixo */
+  .hero-left{align-items:center;text-align:center;padding-bottom:0;width:100%}
+  #hero h1{max-width:100%;font-size:clamp(20px,5.5vw,28px);text-align:center}
+  .hero-sub{max-width:100%;text-align:center;font-size:clamp(15px,4vw,18px)}
+  .bwrap{align-items:center}
+  .pgrid{grid-template-columns:1fr}
+  .pcard.wide{grid-column:auto}
+  .dgrid{grid-template-columns:1fr}
+  .dclosing{padding:28px 20px}
+  .pgls{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr}
+  .agrid{grid-template-columns:1fr}
+  /* foto bio mobile — full width, cortada, preenche a seção */
+  .aphoto{width:100%;max-width:100%;margin-inline:0;border-radius:12px;height:320px;overflow:hidden}
+  .aphoto img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  /* badge — um pouco maior */
+  .hero-badge{padding:7px 14px}
+  .hero-badge .lbl{font-size:10.5px;letter-spacing:.04em}
+  /* botão hero em destaque */
+  #hero .bwrap .btn{font-size:14px;padding:17px 28px;width:100%;max-width:340px}
+  /* botões gerais mobile */
+  .btn{font-size:13px;padding:14px 20px}
+  /* botão benefícios maior */
+  #beneficios .btn{font-size:15px;padding:18px 32px}
+  /* botão oferta — numa linha */
+  #oferta .btn{font-size:13px;padding:17px 24px;white-space:nowrap}
+  /* CTA final — botão maior, texto numa linha */
+  #ctafinal .btn{font-size:13px !important;padding:20px 32px !important;white-space:nowrap;width:90%;max-width:360px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+
+    <!-- Coluna esquerda: texto -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="lbl" style="background:var(--gg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center">
+          <span class="badge-ws">Workshop</span>
+          <span style="-webkit-text-fill-color:#c8a04a;opacity:.7">·</span>
+          16/06 às 19h30
+          <span style="-webkit-text-fill-color:#c8a04a;opacity:.5">|</span>
+          <span style="display:inline-flex;align-items:center;gap:4px">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b8922a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.362a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+            Ao vivo no Google Meet
+          </span>
+        </span>
+      </div>
+
+      <h1>Como entrar em um nicho pouco explorado da estética, descobrir como criar próteses de aréolas mamárias realistas e começar a se posicionar com um trabalho que <span class="gold">devolve a autoestima de mulheres que passaram por mastectomia</span> ou outros processos que afetaram sua aréola mamária</h1>
+
+      <p class="hero-sub">Mesmo que você esteja começando do zero ou queira se diferenciar no mercado</p>
+
+      <div class="bwrap">
+        <a href="https://pay.hotmart.com/X106114115V?checkoutMode=10" target="_blank" class="btn">→ QUERO GARANTIR MINHA VAGA</a>
+        <span class="bsub">Vagas limitadas &nbsp;|&nbsp; Protocolo exclusivo</span>
+      </div>
+
+      <svg class="scroll-ico" viewBox="0 0 24 24" fill="none" stroke="#936926" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+
+    <!-- Coluna direita: imagem -->
+    <div class="hero-right">
+      <img src="Valeria-hero-2026.png" alt="Valéria Yoshino – CAP REPAIR"/>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUEBRA -->
+<section id="quebra">
+  <div class="wrap">
+    <p>A medicina reconstrói…</p>
+    <p>Mas existe uma parte que ainda fica faltando.</p>
+    <p>E quem resolve isso hoje…</p>
+    <p class="punch">Tem alto valor e quase não tem concorrência.</p>
+  </div>
+</section>
+
+<!-- PROVA -->
+<section id="prova">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Resultados que vão muito além da estética</h2>
+    <p>Existem coisas que nenhuma técnica comum resolve. É exatamente aí que esse método entra.</p>
+    <div class="pgrid">
+      <div class="pcard">
+        <div class="pico">
+          <svg viewBox="0 0 24 24"><path d="M12 21C12 21 3 14.5 3 8.5a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 12.5-9 12.5z"/></svg>
+        </div>
+        <h3>Mulheres que ainda não se sentiam completas</h3>
+        <p style="font-size:15px;color:#666;line-height:1.6;margin-top:12px">Mesmo após a reconstrução cirúrgica, muitas mulheres ainda não se reconhecem. Existe uma parte que a medicina não completa — e é exatamente aí que o CAP REPAIR atua.</p>
+        <ul><li>Voltam a se reconhecer</li><li>Recuperam a autoestima</li><li>Encerram um ciclo</li></ul>
+      </div>
+      <div class="pcard">
+        <div class="pico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="#936926" stroke="none"/><line x1="12" y1="3" x2="12" y2="1"/><line x1="12" y1="23" x2="12" y2="21"/><line x1="3" y1="12" x2="1" y2="12"/><line x1="23" y1="12" x2="21" y2="12"/></svg>
+        </div>
+        <h3>Profissionais que decidiram sair do comum</h3>
+        <p style="font-size:15px;color:#666;line-height:1.6;margin-top:12px">Quem aprende esse método passa a oferecer algo que o mercado não consegue entregar — e é reconhecida por isso.</p>
+        <ul><li>Serviço diferenciado</li><li>Valor percebido maior</li><li>Nicho mais valorizado</li></ul>
+      </div>
+      <div class="pcard">
+        <div class="pico">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <h3>Alto valor percebido no mercado</h3>
+        <ul><li>Procedimentos entre <strong style="color:#936926">R$300 a R$1.000+</strong></li><li>Baixa concorrência</li><li>Alta valorização</li></ul>
+      </div>
+    </div>
+    <div class="vbanner">
+      <p>Não é só técnica. É se tornar o profissional que resolve problemas que <strong>quase ninguém resolve</strong> e que torna sonhos realidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section id="dor">
+  <div class="wrap">
+    <div class="bar"></div>
+    <div class="dgrid">
+      <div class="dblk"><span class="dlbl">Se você já é da área…</span><ul><li>Está presa nos mesmos procedimentos</li><li>Sente que o mercado está saturado</li><li>Não consegue se diferenciar</li></ul></div>
+      <div class="dblk"><span class="dlbl">Se você está começando…</span><ul><li>Não sabe por onde entrar</li><li>Tem medo de investir errado</li><li>Quer algo que realmente dê retorno</li></ul></div>
+      <div class="dclosing"><p>E enquanto isso… existem mulheres que passam por cirurgias,<br>mas ainda <em>não se reconhecem no espelho.</em></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Durante esse evento, você vai descobrir:</h2>
+    <ul class="blist">
+      <li><div class="arw">→</div>Como entrar em um nicho pouco explorado</li>
+      <li><div class="arw">→</div>Como criar um serviço com alto valor percebido</li>
+      <li><div class="arw">→</div>Como transformar essa habilidade em renda</li>
+      <li><div class="arw">→</div>Como se posicionar como profissional diferenciada</li>
+      <li><div class="arw">→</div>Como devolver autoestima para mulheres reais</li>
+    </ul>
+    <div class="bwrap c"><a href="https://pay.hotmart.com/X106114115V?checkoutMode=10" target="_blank" class="btn">→ GARANTIR MINHA VAGA AGORA</a></div>
+  </div>
+</section>
+
+<!-- MECANISMO -->
+<section id="mecanismo">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Você vai conhecer o método por trás da reconstrução realista.</h2>
+    <p style="color:#89806E">O CAP REPAIR é baseado em 4 pilares:</p>
+    <div class="pgls">
+      <div class="pil">
+        <div class="pil-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <span class="pnum">01</span>
+        <h3>Estrutura</h3>
+      </div>
+      <div class="pil">
+        <div class="pil-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.5 7 7.5 1-5.5 5.5 1.5 7.5L12 20l-7 3.5 1.5-7.5L1 10.5l7.5-1z"/></svg>
+        </div>
+        <span class="pnum">02</span>
+        <h3>Volume</h3>
+      </div>
+      <div class="pil">
+        <div class="pil-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </div>
+        <span class="pnum">03</span>
+        <h3>Cor</h3>
+      </div>
+      <div class="pil">
+        <div class="pil-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.5 17.5c3-5 7-8 13-10C18 14 14 19 6.5 17.5z"/><path d="M6.5 17.5C5 12 7 7 12 4"/></svg>
+        </div>
+        <span class="pnum">04</span>
+        <h3>Naturalidade</h3>
+      </div>
+    </div>
+    <p class="mclose">Isso é o que faz o resultado <span class="gold" style="-webkit-text-fill-color:unset;background:none;color:#936926">parecer real.</span></p>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section id="para-quem">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Esse evento é para você?</h2>
+    <div class="fgrid">
+      <div class="fblk yes"><span class="ftitle">✔ Para você se:</span><ul class="flist"><li><span class="ck">✔</span>Quer começar na estética com algo diferenciado</li><li><span class="ck">✔</span>Já trabalha na área e quer sair do básico</li><li><span class="ck">✔</span>Quer cobrar mais pelos seus serviços</li><li><span class="ck">✔</span>Busca renda com propósito</li></ul></div>
+      <div class="fblk no"><span class="ftitle">✗ Não é para você se:</span><ul class="nlist"><li><span class="xk">✗</span>Quer dinheiro fácil</li><li><span class="xk">✗</span>Não quer aprender</li><li><span class="xk">✗</span>Quer continuar no comum</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="wrap">
+    <div class="obox">
+      <span class="oey">Investimento</span>
+      <div class="pold">De R$197</div>
+      <span class="pnew">R$17</span>
+      <div class="pnote">Vagas limitadas</div>
+      <ul class="oitems"><li>Acesso ao evento completo</li><li>Entendimento da técnica</li><li>Estratégia para entrar no nicho</li></ul>
+      <div class="bwrap c" style="margin-top:0"><a href="https://pay.hotmart.com/X106114115V?checkoutMode=10" target="_blank" class="btn">QUERO PARTICIPAR POR R$17</a></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AUTORIDADE -->
+<section id="autoridade">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Quem vai te guiar nesse processo</h2>
+    <div class="agrid">
+      <div class="aphoto"><img src="valeria-foto-bio.jpeg" alt="Valéria Yoshino"/></div>
+      <div class="atext">
+        <h3 style="font-weight:700;font-size:22px;color:var(--esp)">Valéria Yoshino</h3>
+        <p>Valéria Yoshino não ensina apenas uma técnica.</p>
+        <p>Ela construiu uma trajetória de mais de <strong>24 anos</strong> dentro da micropigmentação, sendo mais de uma década dedicada exclusivamente à área paramédica — atuando diretamente com mulheres que passaram por mastectomia, cirurgias reparadoras e processos profundos de reconstrução.</p>
+        <p>Ao longo dos anos, se especializou no <strong>Brasil, Inglaterra e Espanha</strong>, desenvolvendo uma visão única sobre reconstrução estética com impacto emocional.</p>
+        <p>Foi a partir dessa experiência prática que percebeu uma falha: mesmo após a reconstrução… algo ainda faltava.</p>
+        <p>Foi assim que nasceu o método <strong>CAP REPAIR</strong> — uma técnica criada para devolver não apenas estética, mas <strong style="color:#936926">projeção, naturalidade e identidade.</strong></p>
+        <p>Hoje, além de atender pacientes, Valéria forma profissionais que desejam ir além do comum e atuar em um dos nichos mais sensíveis e valorizados da estética.</p>
+        <div class="aquote">"Ajudar mulheres a encerrarem ciclos de dor e voltarem a se reconhecer no espelho."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="bar"></div>
+    <h2>Perguntas frequentes</h2>
+    <div class="faqlist">
+      <details><summary>Preciso já trabalhar com micropigmentação ou estética?</summary><p>Não. O método foi estruturado para iniciantes e também para profissionais que querem se diferenciar.</p></details>
+      <details><summary>E se eu nunca trabalhei com nada manual? Vou conseguir?</summary><p>Sim. A técnica é ensinada de forma progressiva. Você não precisa ter experiência prévia, apenas seguir o processo.</p></details>
+      <details><summary>Isso realmente dá retorno financeiro?</summary><p>Sim. É um serviço com alto valor percebido e baixa concorrência. Muitas profissionais cobram de <strong>R$700 a R$2.000</strong> por aplicação.</p></details>
+      <details><summary>Em quanto tempo consigo começar a aplicar?</summary><p>Você já sai do evento entendendo o caminho. A aplicação completa vem com a formação.</p></details>
+      <details><summary>Vou aprender tudo nesse evento?</summary><p>Não. O evento mostra o método, o potencial e o caminho. A execução completa está na formação CAP REPAIR.</p></details>
+      <details><summary>Preciso de equipamentos caros?</summary><p>Não. Você vai entender exatamente quais materiais utilizar e como começar sem investimentos desnecessários.</p></details>
+      <details><summary>Isso funciona para quem está começando do zero?</summary><p>Sim. Inclusive, muitas pessoas preferem começar direto com uma técnica diferenciada ao invés de entrar no mercado saturado.</p></details>
+      <details><summary>Por quanto tempo terei acesso?</summary><p>Você terá acesso durante o período do evento + replay por tempo limitado.</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Simples assim.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="ctafinal">
+  <div class="wrap" style="max-width:720px">
+    <p class="cfade">Se você quer continuar no comum… feche essa página.</p>
+    <p class="cstrong">Mas se quer entrar em um nicho pouco explorado,<br><span>ganhar dinheiro e transformar vidas:</span></p>
+    <div class="bwrap c" style="margin-top:56px"><a href="https://pay.hotmart.com/X106114115V?checkoutMode=10" target="_blank" class="btn" style="font-size:17px;padding:22px 56px">GARANTIR MINHA VAGA AGORA</a></div>
+  </div>
+</section>
+
+<footer><p>&copy; 2026 &nbsp;·&nbsp; Valéria Yoshino &nbsp;·&nbsp; CAP REPAIR &nbsp;·&nbsp; Todos os direitos reservados</p></footer>
+
+</body>
+</html>
