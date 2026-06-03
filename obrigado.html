@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Obrigado! – CAP REPAIR · Valéria Yoshino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;1,600&family=Sora:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Red Hat Display",sans-serif;
+  background:#FFFCF7;
+  color:#342710;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+:root{
+  --esp:#342710;
+  --navy:#0A2031;
+  --cream:#FFFCF7;
+  --mid:#F5ECDE;
+  --brd:#E8DDD0;
+  --gg:linear-gradient(86deg,#936926 -4%,#D1BD80 98%);
+  --green:#25D366;
+  --green-dark:#1DA851;
+  --sbtn:0 4px 48px rgba(226,154,50,.45);
+  --sbtn-green:0 4px 48px rgba(37,211,102,.40);
+}
+
+/* ── Fundo decorativo ── */
+.page-bg{
+  flex:1;
+  background:
+    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(209,189,128,.28) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(196,154,60,.14) 0%, transparent 55%),
+    #FFFCF7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 24px 80px;
+}
+
+/* ── Card central ── */
+.card{
+  width:100%;
+  max-width:620px;
+  text-align:center;
+}
+
+/* ── Selo de confirmação ── */
+.check-seal{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 28px;
+  box-shadow:0 4px 24px rgba(34,197,94,.35);
+}
+.check-seal svg{width:36px;height:36px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Badge IMPORTANTE ── */
+.badge-alerta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.08);
+  border:1px solid rgba(220,38,38,.25);
+  border-radius:50px;
+  padding:7px 18px;
+  margin-bottom:24px;
+}
+.badge-alerta span{
+  font-family:"Inter",sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#dc2626;
+}
+
+/* ── Headline ── */
+.card h1{
+  font-size:clamp(24px,4vw,38px);
+  font-weight:700;
+  line-height:1.2;
+  color:var(--esp);
+  margin-bottom:16px;
+}
+.card h1 span{
+  background:var(--gg);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── Barra de progresso ── */
+.progress-wrap{
+  margin:32px 0;
+}
+.progress-label{
+  display:flex;justify-content:space-between;
+  margin-bottom:10px;
+}
+.progress-step{
+  font-family:"Inter",sans-serif;
+  font-size:12px;font-weight:600;
+  display:flex;align-items:center;gap:6px;
+}
+.progress-step.done{color:#22c55e}
+.progress-step.now {color:#936926}
+.step-dot{
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;
+}
+.step-dot.done{background:#22c55e;color:#fff}
+.step-dot.now {background:var(--gg);color:#fff}
+.progress-bar-track{
+  width:100%;height:8px;
+  background:#e8ddd0;border-radius:50px;
+  overflow:hidden;
+}
+.progress-bar-fill{
+  height:100%;width:50%;
+  background:var(--gg);
+  border-radius:50px;
+  position:relative;
+  overflow:hidden;
+}
+.progress-bar-fill::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
+  animation:shimmer 2s infinite;
+}
+@keyframes shimmer{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(200%)}
+}
+
+/* ── Texto instrução ── */
+.instrucao{
+  font-size:clamp(15px,2vw,18px);
+  color:var(--navy);
+  line-height:1.7;
+  margin-bottom:32px;
+}
+
+/* ── Lista de benefícios ── */
+.beneficios{
+  list-style:none;
+  background:var(--mid);
+  border:1px solid rgba(147,105,38,.15);
+  border-radius:16px;
+  padding:24px 28px;
+  margin:0 0 36px;
+  text-align:left;
+}
+.beneficios li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(147,105,38,.1);
+  font-size:clamp(14px,1.6vw,16px);
+  font-weight:600;
+  color:var(--esp);
+}
+.beneficios li:last-child{border-bottom:none}
+.ben-icon{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  background:rgba(147,105,38,.1);
+  display:flex;align-items:center;justify-content:center;
+}
+.ben-icon svg{width:16px;height:16px;stroke:#936926;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Botão WhatsApp ── */
+.btn-wpp{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;max-width:440px;
+  font-family:"Inter",sans-serif;
+  font-size:17px;font-weight:700;
+  letter-spacing:.03em;text-transform:uppercase;
+  padding:20px 40px;
+  border-radius:900px;
+  background:linear-gradient(135deg,#25D366 0%,#1aae55 100%);
+  color:#fff;
+  border:none;cursor:pointer;
+  box-shadow:var(--sbtn-green);
+  transition:transform .15s,box-shadow .15s;
+  animation:pulse-btn 2.5s infinite;
+}
+.btn-wpp:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 48px rgba(37,211,102,.55);
+  animation:none;
+}
+@keyframes pulse-btn{
+  0%,100%{box-shadow:var(--sbtn-green)}
+  50%{box-shadow:0 4px 60px rgba(37,211,102,.65)}
+}
+.btn-wpp svg{width:24px;height:24px;fill:#fff;flex-shrink:0}
+
+.btn-sub{
+  font-family:"Inter",sans-serif;
+  font-size:13px;color:#89806E;
+  margin-top:10px;
+  display:block;
+}
+
+/* ── Rodapé ── */
+footer{
+  background:#100800;
+  padding:24px;
+  text-align:center;
+}
+footer p{
+  font-family:"Inter",sans-serif;
+  font-size:12px;
+  color:rgba(255,255,255,.4);
+  margin:0;
+}
+
+/* ── Responsive ── */
+@media(max-width:600px){
+  .page-bg{padding:40px 20px 60px}
+  .card h1{font-size:clamp(22px,6vw,30px)}
+  .progress-step span{display:none}
+  .btn-wpp{font-size:15px;padding:18px 28px}
+  .beneficios{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="page-bg">
+  <div class="card">
+
+    <!-- Ícone de confirmação -->
+    <div class="check-seal">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <!-- Badge IMPORTANTE -->
+    <div class="badge-alerta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>🚨 Importante</span>
+    </div>
+
+    <!-- Headline -->
+    <h1>Falta apenas <span>um passo</span> para garantir a sua vaga no Workshop exclusivo CAP REPAIR com a Valéria Yoshino.</h1>
+
+    <!-- Barra de progresso -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <div class="progress-step done">
+          <div class="step-dot done">✓</div>
+          <span>Pagamento confirmado</span>
+        </div>
+        <div class="progress-step now">
+          <div class="step-dot now">2</div>
+          <span>Entrar no grupo</span>
+        </div>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- Instrução -->
+    <p class="instrucao">
+      Pressione o botão abaixo e entre no grupo do WhatsApp para confirmar sua participação na aula e garantir todo o material:
+    </p>
+
+    <!-- Lista de benefícios -->
+    <ul class="beneficios">
+      <li>
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.362a1 1 0 0 1-1.447.894L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+        </div>
+        Link da aula ao vivo
+      </li>
+      <li>
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        Materiais de apoio
+      </li>
+      <li>
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        Avisos e lembretes
+      </li>
+      <li>
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        </div>
+        Bônus surpresa para quem estiver ao vivo até o final
+      </li>
+    </ul>
+
+    <!-- Botão WhatsApp -->
+    <a href="https://chat.whatsapp.com/Kssmk7IQY2jLFNKl0zkyKg?s=cl&p=i&ilr=0&amv=2"
+       target="_blank"
+       class="btn-wpp">
+      <!-- Ícone WhatsApp -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      ENTRAR NO GRUPO AGORA
+    </a>
+    <span class="btn-sub">Acesso imediato &bull; Grupo oficial do Workshop</span>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 &nbsp;·&nbsp; Valéria Yoshino &nbsp;·&nbsp; CAP REPAIR &nbsp;·&nbsp; Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
