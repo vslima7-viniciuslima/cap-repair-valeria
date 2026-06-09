@@ -553,5 +553,309 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
 
 <footer><p>&copy; 2026 &nbsp;·&nbsp; Valéria Yoshino &nbsp;·&nbsp; CAP REPAIR &nbsp;·&nbsp; Todos os direitos reservados</p></footer>
 
+<!-- ═══════════════════════════════════════════
+     POP-UP DE SAÍDA
+════════════════════════════════════════════ -->
+<div id="exit-overlay" style="display:none" aria-modal="true" role="dialog">
+  <div id="exit-card">
+    <button id="exit-close" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- Badge urgência -->
+    <div class="exit-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>Espera! Antes de sair…</span>
+    </div>
+
+    <!-- Headline -->
+    <h2 class="exit-h2">O <span class="exit-gold">Lote 0 fecha sexta</span></h2>
+    <p class="exit-sub">Hoje o Workshop CAP REPAIR está por <strong>R&nbsp;$&nbsp;17</strong>.<br>Na segunda-feira o preço sobe para <strong>R&nbsp;$&nbsp;47</strong>.<br>Garanta sua vaga agora, antes de fechar.</p>
+
+    <!-- Preço -->
+    <div class="exit-price-wrap">
+      <span class="exit-price-de">de R$&nbsp;47</span>
+      <span class="exit-price-por">R$&nbsp;17</span>
+      <span class="exit-price-tag">Lote 0 · até 12/06</span>
+    </div>
+
+    <!-- Botão -->
+    <a href="https://pay.hotmart.com/X106114115V?checkoutMode=10"
+       target="_blank"
+       onclick="fbq('track', 'InitiateCheckout');"
+       class="exit-btn">
+      QUERO MINHA VAGA POR R$&nbsp;17
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <p class="exit-fine">Pagamento seguro · Garantia de 7 dias</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TOAST DE PROVA SOCIAL
+════════════════════════════════════════════ -->
+<div id="social-toast" aria-live="polite">
+  <div id="social-toast-inner">
+    <div class="st-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </div>
+    <div class="st-text">
+      <span class="st-name" id="st-name">Keila Almeida</span>
+      <span class="st-loc" id="st-loc">do Acre garantiu a vaga 🎉</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ESTILOS
+════════════════════════════════════════════ -->
+<style>
+/* ── EXIT POPUP ── */
+#exit-overlay{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(10,10,5,.72);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  animation:fadeInOv .25s ease;
+}
+@keyframes fadeInOv{from{opacity:0}to{opacity:1}}
+
+#exit-card{
+  position:relative;
+  width:100%;max-width:500px;
+  background:#FFFCF7;
+  border-radius:24px;
+  padding:44px 40px 36px;
+  text-align:center;
+  box-shadow:0 24px 80px rgba(52,39,16,.22);
+  animation:slideUp .3s cubic-bezier(.22,.61,.36,1);
+}
+@keyframes slideUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+#exit-close{
+  position:absolute;top:16px;right:16px;
+  background:none;border:none;cursor:pointer;
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#8a7560;
+  transition:background .15s,color .15s;
+}
+#exit-close:hover{background:#f0e8db;color:#342710}
+#exit-close svg{width:18px;height:18px}
+
+.exit-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(220,38,38,.08);
+  border:1px solid rgba(220,38,38,.22);
+  border-radius:50px;
+  padding:8px 18px;
+  margin-bottom:22px;
+}
+.exit-badge svg{width:16px;height:16px;stroke:#dc2626;flex-shrink:0}
+.exit-badge span{
+  font-family:"Inter",sans-serif;
+  font-size:13px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:#dc2626;
+}
+
+.exit-h2{
+  font-family:"Red Hat Display",sans-serif;
+  font-size:clamp(22px,4vw,30px);
+  font-weight:800;
+  color:#342710;
+  line-height:1.25;
+  margin-bottom:14px;
+}
+.exit-gold{
+  background:linear-gradient(86deg,#936926 -4%,#D1BD80 98%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.exit-sub{
+  font-family:"Inter",sans-serif;
+  font-size:15px;color:#5a4a36;
+  line-height:1.7;margin-bottom:24px;
+}
+.exit-sub strong{color:#342710;font-weight:700}
+
+.exit-price-wrap{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#F5ECDE;
+  border-radius:14px;
+  padding:16px 24px;
+  margin-bottom:28px;
+}
+.exit-price-de{
+  font-family:"Inter",sans-serif;
+  font-size:14px;font-weight:600;
+  color:#a0907c;
+  text-decoration:line-through;
+}
+.exit-price-por{
+  font-family:"Red Hat Display",sans-serif;
+  font-size:28px;font-weight:900;
+  background:linear-gradient(86deg,#936926,#D1BD80);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.exit-price-tag{
+  font-family:"Inter",sans-serif;
+  font-size:12px;font-weight:700;
+  color:#936926;
+  background:rgba(147,105,38,.12);
+  border-radius:50px;
+  padding:4px 12px;
+}
+
+.exit-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;
+  font-family:"Inter",sans-serif;
+  font-size:16px;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;
+  padding:18px 32px;
+  border-radius:900px;
+  background:linear-gradient(86deg,#936926 -4%,#D1BD80 98%);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 4px 32px rgba(147,105,38,.4);
+  transition:transform .15s,box-shadow .15s;
+  margin-bottom:16px;
+}
+.exit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(147,105,38,.55)}
+.exit-btn svg{width:18px;height:18px;flex-shrink:0}
+
+.exit-fine{
+  font-family:"Inter",sans-serif;
+  font-size:12px;color:#a0907c;
+}
+
+/* ── SOCIAL TOAST ── */
+#social-toast{
+  position:fixed;
+  bottom:28px;left:24px;
+  z-index:8888;
+  pointer-events:none;
+}
+#social-toast-inner{
+  display:flex;align-items:center;gap:12px;
+  background:#1e160a;
+  border:1px solid rgba(209,189,128,.25);
+  border-radius:14px;
+  padding:14px 18px;
+  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  min-width:240px;max-width:300px;
+  opacity:0;
+  transform:translateX(-110%);
+  transition:opacity .4s ease, transform .4s cubic-bezier(.22,.61,.36,1);
+}
+#social-toast-inner.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+.st-icon{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#936926,#D1BD80);
+  display:flex;align-items:center;justify-content:center;
+}
+.st-icon svg{width:18px;height:18px;stroke:#fff}
+.st-text{display:flex;flex-direction:column;gap:2px}
+.st-name{
+  font-family:"Red Hat Display",sans-serif;
+  font-size:14px;font-weight:700;color:#FFFCF7;
+}
+.st-loc{
+  font-family:"Inter",sans-serif;
+  font-size:12px;color:rgba(255,252,247,.6);
+}
+</style>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+/* ── EXIT INTENT ── */
+(function(){
+  var overlay = document.getElementById('exit-overlay');
+  var closeBtn = document.getElementById('exit-close');
+  var shown = false;
+
+  function showExit(){
+    if(shown) return;
+    shown = true;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function hideExit(){
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // Desktop: mouse sai pelo topo
+  document.addEventListener('mouseleave', function(e){
+    if(e.clientY < 10) showExit();
+  });
+
+  // Mobile: botão voltar / visibilidade
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'hidden') showExit();
+  });
+
+  closeBtn.addEventListener('click', hideExit);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) hideExit();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') hideExit();
+  });
+})();
+
+/* ── SOCIAL PROOF TOASTS ── */
+(function(){
+  var buyers = [
+    { name: 'Keila Almeida',  loc: 'do Acre garantiu a vaga 🎉' },
+    { name: 'Erika Hamelin',  loc: 'de Minas Gerais garantiu a vaga 🎉' },
+    { name: 'Dalila Carlos',  loc: 'do Paraná garantiu a vaga 🎉' },
+    { name: 'Joana Andrade',  loc: 'de São Paulo garantiu a vaga 🎉' },
+  ];
+
+  var inner   = document.getElementById('social-toast-inner');
+  var nameEl  = document.getElementById('st-name');
+  var locEl   = document.getElementById('st-loc');
+  var idx     = 0;
+  var started = false;
+
+  function showToast(i){
+    nameEl.textContent = buyers[i].name;
+    locEl.textContent  = buyers[i].loc;
+    inner.classList.add('visible');
+    setTimeout(function(){
+      inner.classList.remove('visible');
+    }, 4000);
+  }
+
+  function runCycle(){
+    showToast(idx);
+    idx = (idx + 1) % buyers.length;
+    // próximo aparece entre 8s e 14s depois
+    var delay = 8000 + Math.random() * 6000;
+    setTimeout(runCycle, delay + 4200); // 4.2s = tempo do toast visível + saída
+  }
+
+  // Dispara após o usuário rolar ~30% da página
+  window.addEventListener('scroll', function onScroll(){
+    if(started) return;
+    var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if(pct > 0.12){
+      started = true;
+      window.removeEventListener('scroll', onScroll);
+      setTimeout(runCycle, 2500); // pequeno delay antes do primeiro
+    }
+  }, { passive: true });
+})();
+</script>
+
 </body>
 </html>
