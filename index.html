@@ -805,16 +805,8 @@ footer p{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7
     setTimeout(runCycle, delay + 4200); // 4.2s = tempo do toast visível + saída
   }
 
-  // Dispara após o usuário rolar ~30% da página
-  window.addEventListener('scroll', function onScroll(){
-    if(started) return;
-    var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    if(pct > 0.12){
-      started = true;
-      window.removeEventListener('scroll', onScroll);
-      setTimeout(runCycle, 800); // pequeno delay antes do primeiro
-    }
-  }, { passive: true });
+  // Dispara 4s após o carregamento — sem precisar rolar
+  setTimeout(runCycle, 4000);
 })();
 </script>
 
